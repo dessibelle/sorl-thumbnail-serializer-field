@@ -33,6 +33,6 @@ setup(
     ],
     install_requires=[
         'sorl-thumbnail',
-        'django-rest-framework',
+        'djangorestframework',
     ],
 )
