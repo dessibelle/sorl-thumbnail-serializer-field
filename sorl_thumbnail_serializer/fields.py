@@ -11,7 +11,7 @@ class HyperlinkedSorlImageField(serializers.ImageField):
 
         super(HyperlinkedSorlImageField, self).__init__(*args, **kwargs)
 
-    def to_native(self, value):
+    def to_representation(self, value):
 
         image = get_thumbnail(value, self.dimensions, **self.options)
 
