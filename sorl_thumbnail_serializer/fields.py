@@ -20,3 +20,5 @@ class HyperlinkedSorlImageField(serializers.ImageField):
             return request.build_absolute_uri(image.url)
         except Exception, e:
             return super(HyperlinkedSorlImageField, self).to_native(image.url)
+
+    to_native = to_representation
