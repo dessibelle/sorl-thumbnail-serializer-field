@@ -1,5 +1,5 @@
 """
-Sorl Thumbnail Serializer Field
+Image Serializer for sorl and Django REST Framework.
 
 Provides a way of exposing a scaled version of an image rather than the
 full-size one, and if you prefer many different versions (thumb, large etc.)
