@@ -1,10 +1,15 @@
 [run]
 source = sorl_thumbnail_serializer
-omit = */migrations/*,*/south_migrations/*
+omit =
+    */migrations/*
+    */south_migrations/*
+    tests
+    sorl_thumbnail_serializer/__init__.py
 parallel = true
 
 [report]
 precision = 2
+show_missing = true
 exclude_lines =
     # Have to re-enable the standard pragma
     pragma: no cover

@@ -12,7 +12,7 @@ flake8:
 
 test:
 	DJANGO_SETTINGS_MODULE=tests.test_project.settings PYTHONPATH=. \
-		django-admin.py test ${TARGET}
+		`which django-admin.py` test ${TARGET}
 
 coverage:
 	coverage erase

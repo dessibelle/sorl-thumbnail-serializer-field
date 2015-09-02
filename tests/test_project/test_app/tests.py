@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 from django.test import TestCase
+from sorl_thumbnail_serializer.fields import HyperlinkedSorlImageField
 
 # try:
 #     import unittest2 as unittest
@@ -12,11 +13,12 @@ from django.test import TestCase
 #     from mock import patch, Mock, ANY, call
 
 
-# from sorl_thumbnail_serializer.fields import HyperlinkedSorlImageField
-
-
 class HyperlinkedSorlImageFieldTest(TestCase):
 
-    def test_something(self):
-        # field = HyperlinkedSorlImageField('12345')
+    def test_to_representation(self):
+        field = HyperlinkedSorlImageField('1234')
+
+        retval = field.to_representation("value")
+
+        self.assertEqual(None, retval)
         pass

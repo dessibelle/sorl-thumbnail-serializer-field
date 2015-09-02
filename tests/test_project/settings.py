@@ -38,7 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'test_project.test_app',
+    'tests.test_project.test_app',
 
     'sorl.thumbnail',
     'rest_framework',

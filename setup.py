@@ -55,7 +55,7 @@ setup(
     ],
     install_requires=[
         'Django>=1.4.2',
-        'sorl-thumbnail>=2.0',
-        'djangorestframework>=11.0',
+        'djangorestframework==3.2.3',
+        'sorl-thumbnail==12.3',
     ],
 )

@@ -83,6 +83,8 @@ class HyperlinkedSorlImageField(serializers.ImageField):
             request = self.context.get('request', None)
             return request.build_absolute_uri(image.url)
         except Exception:
+            return super(HyperlinkedSorlImageField, self).to_representation(image.url)
+        except AttributeError:
             return super(HyperlinkedSorlImageField, self).to_native(image.url)
 
     to_native = to_representation
