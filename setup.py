@@ -1,7 +1,24 @@
 import os
-from setuptools import setup
+from setuptools import setup, find_packages
 
-README = open(os.path.join(os.path.dirname(__file__), 'README.md')).read()
+VERSION = __import__("sorl_thumbnail_serializer").VERSION
+
+
+def read_md(path):
+    long_desc = ""
+    if os.path.exists(path):
+        try:
+            from pypandoc import convert
+            long_desc = convert(path, 'rst')
+        except:
+            try:
+                long_desc = open(path, 'r').read()
+            except:
+                pass
+    return long_desc
+
+long_desc = read_md(os.path.join(os.path.dirname(__file__), 'README.md'))
+
 
 # allow setup.py to be run from any path
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
@@ -9,12 +26,14 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 setup(
     name='sorl-thumbnail-serializer-field',
     version='0.1',
-    packages=['sorl_thumbnail_serializer'],
+    packages=find_packages(exclude=['tests']),
     include_package_data=True,
     license='MIT License',
-    description='A sorl-thumbnail field for use with django-rest-framework.',
-    long_description=README,
+    description='An image serializer field for use with sorl and Django REST Framework.',
+    long_description=long_desc,
     url='https://github.com/dessibelle/sorl-thumbnail-serializer-field',
+    download_url="https://github.com/dessibelle/sorl-thumbnail-serializer-field/"
+        "archive/%s.tar.gz" % VERSION,
     author='Simon Fransson',
     author_email='simon@dessibelle.se',
     classifiers=[
@@ -24,14 +43,18 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
-        # Replace these appropriately if you are stuck on Python 2.
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.6',
+        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.2',
         'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
     install_requires=[
+        'Django>=1.4.2,<1.8.99,!=1.5.*,!=1.6.*',
         'sorl-thumbnail',
         'djangorestframework',
     ],

@@ -47,11 +47,11 @@ from sorl.thumbnail import get_thumbnail
 
 class HyperlinkedSorlImageField(serializers.ImageField):
 
-    """A Django REST Framework Field class returning hyperlinked scaled and cached images."""  # NOQA
+    """A Django REST Framework Field class returning hyperlinked scaled and cached images."""
 
     def __init__(self, geometry_string, options={}, *args, **kwargs):
         """
-        Create an instance of the HyperlinkedSorlImageField image serializer
+        Create an instance of the HyperlinkedSorlImageField image serializer.
 
         Args:
             geometry_string (str): The size of your cropped image.
@@ -63,7 +63,6 @@ class HyperlinkedSorlImageField(serializers.ImageField):
         For a description of sorl geometry strings and additional sorl options,
         please see https://sorl-thumbnail.readthedocs.org/en/latest/examples.html?highlight=geometry#low-level-api-examples
         """  # NOQA
-
         self.geometry_string = geometry_string
         self.options = options
 
