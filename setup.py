@@ -54,8 +54,8 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
     install_requires=[
-        'Django>=1.4.2,<1.8.99,!=1.5.*,!=1.6.*',
-        'sorl-thumbnail',
-        'djangorestframework',
+        'Django>=1.4.2',
+        'sorl-thumbnail>=2.0',
+        'djangorestframework>=11.0',
     ],
 )
