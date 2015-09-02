@@ -10,11 +10,12 @@ Quick start
 -----------
 
 1. Add `sorl_thumbnail_serializer` to your `INSTALLED_APPS` setting:
-
+    ```python
     INSTALLED_APPS = (
         ...
         'sorl_thumbnail_serializer',
     )
+    ```
 
 2. Add the `HyperlinkedSorlImageField` to your serializer class.
 
@@ -23,37 +24,38 @@ Quick start
 
 Example usage
 -------------
-
-    # urls.py
-    from django.conf.urls import url, include
-    from models import TestModel
-    from rest_framework import routers, serializers, viewsets
-    from sorl_thumbnail_serializer.fields import HyperlinkedSorlImageField
-
-
-    class TestModelSerializer(serializers.HyperlinkedModelSerializer):
-        class Meta:
-            model = TestModel
-
-        # A thumbnail image, sorl options and read-only
-        thumbnail = HyperlinkedSorlImageField(
-            '128x128',
-            options={"crop": "center"},
-            source='image',
-            read_only=True
-        )
-        # A larger version of the image, allows writing
-        image = HyperlinkedSorlImageField('1024')
+```python
+# urls.py
+from django.conf.urls import url, include
+from models import TestModel
+from rest_framework import routers, serializers, viewsets
+from sorl_thumbnail_serializer.fields import HyperlinkedSorlImageField
 
 
-    class TestModelViewSet(viewsets.ModelViewSet):
-        queryset = TestModel.objects.all()
-        serializer_class = TestModelSerializer
+class TestModelSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = TestModel
+
+    # A thumbnail image, sorl options and read-only
+    thumbnail = HyperlinkedSorlImageField(
+        '128x128',
+        options={"crop": "center"},
+        source='image',
+        read_only=True
+    )
+    # A larger version of the image, allows writing
+    image = HyperlinkedSorlImageField('1024')
 
 
-    router = routers.DefaultRouter()
-    router.register(r'test_models', TestModelViewSet)
+class TestModelViewSet(viewsets.ModelViewSet):
+    queryset = TestModel.objects.all()
+    serializer_class = TestModelSerializer
 
-    urlpatterns = [
-        url(r'^', include(router.urls)),
-    ]
+
+router = routers.DefaultRouter()
+router.register(r'test_models', TestModelViewSet)
+
+urlpatterns = [
+    url(r'^', include(router.urls)),
+]
+```
