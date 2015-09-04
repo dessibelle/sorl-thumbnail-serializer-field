@@ -11,7 +11,7 @@ flake8:
 	flake8 --ignore=W999 sorl_thumbnail_serializer
 
 test:
-	DJANGO_SETTINGS_MODULE=tests.test_project.settings PYTHONPATH=. \
+	DJANGO_SETTINGS_MODULE=tests.test_project.settings_test PYTHONPATH=. \
 		`which django-admin.py` test ${TARGET}
 
 coverage:

@@ -19,6 +19,6 @@ from django.conf import settings
 
 
 urlpatterns = [
-    url(r'^api/', include('test_app.urls')),
+    url(r'^api/', include('test_project.test_app.urls')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

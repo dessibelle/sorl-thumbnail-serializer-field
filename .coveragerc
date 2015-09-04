@@ -3,7 +3,7 @@ source = sorl_thumbnail_serializer
 omit =
     */migrations/*
     */south_migrations/*
-    tests
+    sorl_thumbnail_serializer/tests/*
     sorl_thumbnail_serializer/__init__.py
 parallel = true
 
