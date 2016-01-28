@@ -77,6 +77,9 @@ class HyperlinkedSorlImageField(serializers.ImageField):
         Returns:
             a url pointing at a scaled and cached image
         """
+        if not value:
+            return None
+
         image = get_thumbnail(value, self.geometry_string, **self.options)
 
         try:
