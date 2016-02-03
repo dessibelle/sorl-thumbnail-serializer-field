@@ -82,12 +82,12 @@ class HyperlinkedSorlImageField(serializers.ImageField):
 
         image = get_thumbnail(value, self.geometry_string, **self.options)
 
-        try:
-            request = self.context.get('request', None)
-            return request.build_absolute_uri(image.url)
-        except:
-            try:
-                return super(HyperlinkedSorlImageField, self).to_representation(image.url)
-            except AttributeError:  # NOQA
-                return super(HyperlinkedSorlImageField, self).to_native(image.url)  # NOQA
+        request = self.context.get('request', None)
+        assert request is not None, (
+            "`%s` requires the request in the serializer"
+            " context. Add `context={'request': request}` when instantiating "
+            "the serializer." % self.__class__.__name__
+        )
+
+        return request.build_absolute_uri(image.url)
     to_native = to_representation
