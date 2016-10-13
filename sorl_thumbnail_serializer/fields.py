@@ -43,13 +43,14 @@ Example Usage:
 
 from rest_framework import serializers
 from sorl.thumbnail import get_thumbnail
+from .settings import SORL_THUMBNAIL_SETTINGS as api_settings
 
 
 class HyperlinkedSorlImageField(serializers.ImageField):
 
     """A Django REST Framework Field class returning hyperlinked scaled and cached images."""
 
-    def __init__(self, geometry_string, options={}, uri_prefix=None, *args, **kwargs):
+    def __init__(self, geometry_string, options={}, uri_prefix=api_settings['URI_PREFIX'], *args, **kwargs):
         """
         Create an instance of the HyperlinkedSorlImageField image serializer.
 
