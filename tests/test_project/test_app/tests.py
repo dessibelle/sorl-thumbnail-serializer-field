@@ -3,7 +3,7 @@ from django.test import TestCase
 from sorl_thumbnail_serializer.fields import HyperlinkedSorlImageField
 from rest_framework.test import APIRequestFactory
 from PIL import Image
-from StringIO import StringIO
+from io import BytesIO
 from django.core.files.base import ContentFile
 from sorl.thumbnail import get_thumbnail
 from .api import TestModelViewSet
@@ -30,7 +30,7 @@ class HyperlinkedSorlImageFieldTest(TestCase):
     def create_image(self, *args, **kwargs):
         filename = kwargs.pop("filename", "image.png")
 
-        image_file = StringIO()
+        image_file = BytesIO()
         image = Image.new(*args, **kwargs)
         image.save(image_file, 'png')
         image_file.seek(0)
