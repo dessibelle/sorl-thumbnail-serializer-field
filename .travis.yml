@@ -1,29 +1,14 @@
 sudo: no
 language: python
+python:
+  - "2.7"
+  - "3.3"
+  - "3.4"
+  - "3.5"
 install:
-  - pip install tox coveralls
+  - pip install tox-travis coveralls
 script:
   - tox
-env:
-  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py27-django15
-  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py27-django16
-  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py27-django17
-  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py27-django18
-  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py27-django19
-  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py27-django110
-
-  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py33-django18
-
-  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py34-django18
-  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py34-django19
-  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py34-django110
-
-  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py35-django18
-  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py35-django19
-  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py35-django110
-
-  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=coverage
-  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=flake8
 after_success: coveralls
 cache:
   directories:
