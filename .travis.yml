@@ -5,7 +5,15 @@ install:
 script:
   - tox
 env:
-  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py27
+  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py26-django14
+  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py27-django14
+  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py26-django15
+  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py27-django15
+  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py27-django16
+  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py27-django17
+  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py27-django18
+  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py27-django19
+  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py27-django110
   - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=coverage
   - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=flake8
 after_success: coveralls
