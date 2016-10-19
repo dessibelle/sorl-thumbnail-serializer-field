@@ -1,6 +1,3 @@
-
-TARGET?=tests
-
 .PHONY: docs flake8 test coverage
 
 docs:
@@ -12,13 +9,13 @@ flake8:
 
 test:
 	DJANGO_SETTINGS_MODULE=tests.test_project.settings_test PYTHONPATH=. \
-		`which django-admin.py` test ${TARGET}
+		`which django-admin.py` test
 
 coverage:
 	coverage erase
 	DJANGO_SETTINGS_MODULE=tests.test_project.settings PYTHONPATH=. \
 		coverage run --branch --source=sorl_thumbnail_serializer \
-		`which django-admin.py` test ${TARGET}
+		`which django-admin.py` test
 	coverage combine
 	coverage html
 	coverage report
