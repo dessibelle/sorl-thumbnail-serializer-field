@@ -6,6 +6,7 @@ script:
   - tox
 env:
   - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py26-django14
+
   - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py27-django14
   - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py26-django15
   - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py27-django15
@@ -14,6 +15,17 @@ env:
   - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py27-django18
   - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py27-django19
   - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py27-django110
+
+  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py33-django18
+
+  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py34-django18
+  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py34-django19
+  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py34-django110
+
+  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py35-django18
+  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py35-django19
+  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py35-django110
+
   - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=coverage
   - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=flake8
 after_success: coveralls
