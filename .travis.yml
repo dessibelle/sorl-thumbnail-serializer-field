@@ -5,7 +5,6 @@ install:
 script:
   - tox
 env:
-  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py27-django14
   - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py27-django15
   - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py27-django16
   - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py27-django17
