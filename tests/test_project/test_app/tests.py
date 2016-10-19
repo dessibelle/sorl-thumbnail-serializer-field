@@ -1,13 +1,13 @@
 from __future__ import unicode_literals
 from django.test import TestCase
 from sorl_thumbnail_serializer.fields import HyperlinkedSorlImageField
-from models import TestModel
 from rest_framework.test import APIRequestFactory
 from PIL import Image
 from StringIO import StringIO
 from django.core.files.base import ContentFile
-from api import TestModelViewSet
 from sorl.thumbnail import get_thumbnail
+from .api import TestModelViewSet
+from .models import TestModel
 import mock
 
 
