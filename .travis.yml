@@ -1,0 +1,14 @@
+sudo: no
+language: python
+install:
+  - pip install tox coveralls
+script:
+  - tox
+env:
+  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=py27
+  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=coverage
+  - PIP_DOWNLOAD_CACHE=pip_cache TOXENV=flake8
+after_success: coveralls
+cache:
+  directories:
+    - pip_cache
