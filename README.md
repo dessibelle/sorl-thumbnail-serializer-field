@@ -5,8 +5,8 @@ Sorl  Thumbnail Serializer Field
 
 An image serializer field for use with sorl and Django REST Framework.
 
-Provides aa easy way of exposing a scaled version of an image rather than the
-full-size one, and if you prefer many different versions (thumb, large etc.)
+Provides an easy way of exposing a scaled version of an image rather than the
+full-size one, and if you prefer several different versions (thumb, large etc.)
 
 Quick start
 -----------
