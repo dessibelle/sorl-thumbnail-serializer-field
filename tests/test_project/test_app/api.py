@@ -1,4 +1,4 @@
-from models import TestModel
+from .models import TestModel
 from rest_framework import serializers, viewsets
 from sorl_thumbnail_serializer.fields import HyperlinkedSorlImageField
 

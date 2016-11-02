@@ -1,6 +1,6 @@
 from django.conf.urls import url, include
-from api import TestModelViewSet
 from rest_framework import routers
+from .api import TestModelViewSet
 
 
 router = routers.DefaultRouter()

@@ -1,10 +1,12 @@
 Sorl  Thumbnail Serializer Field
 ===============================
 
+[![Build Status](https://travis-ci.org/dessibelle/sorl-thumbnail-serializer-field.svg?branch=master)](https://travis-ci.org/dessibelle/sorl-thumbnail-serializer-field) [![Coverage Status](https://coveralls.io/repos/github/dessibelle/sorl-thumbnail-serializer-field/badge.svg?branch=master)](https://coveralls.io/github/dessibelle/sorl-thumbnail-serializer-field?branch=master)
+
 An image serializer field for use with sorl and Django REST Framework.
 
-Provides aa easy way of exposing a scaled version of an image rather than the
-full-size one, and if you prefer many different versions (thumb, large etc.)
+Provides an easy way of exposing a scaled version of an image rather than the
+full-size one, and if you prefer several different versions (thumb, large etc.)
 
 Quick start
 -----------
