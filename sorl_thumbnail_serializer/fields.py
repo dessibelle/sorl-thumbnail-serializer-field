@@ -50,7 +50,7 @@ class HyperlinkedSorlImageField(serializers.ImageField):
 
     """A Django REST Framework Field class returning hyperlinked scaled and cached images."""
 
-    def __init__(self, geometry_string, options={}, uri_prefix=api_settings['URI_PREFIX'], *args, **kwargs):
+    def __init__(self, geometry_string, options={}, url_prefix=api_settings['URL_PREFIX'], *args, **kwargs):
         """
         Create an instance of the HyperlinkedSorlImageField image serializer.
 
@@ -66,7 +66,7 @@ class HyperlinkedSorlImageField(serializers.ImageField):
         """  # NOQA
         self.geometry_string = geometry_string
         self.options = options
-        self.uri_prefix = uri_prefix
+        self.url_prefix = url_prefix
 
         super(HyperlinkedSorlImageField, self).__init__(*args, **kwargs)
 
@@ -91,7 +91,7 @@ class HyperlinkedSorlImageField(serializers.ImageField):
             "the serializer." % self.__class__.__name__
         )
 
-        if self.uri_prefix:
-            return request.build_absolute_uri(self.uri_prefix + image.url)
+        if self.url_prefix:
+            return request.build_absolute_uri(self.url_prefix + image.url)
         return request.build_absolute_uri(image.url)
     to_native = to_representation
