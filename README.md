@@ -8,16 +8,26 @@ An image serializer field for use with sorl and Django REST Framework.
 Provides an easy way of exposing a scaled version of an image rather than the
 full-size one, and if you prefer several different versions (thumb, large etc.)
 
+Installation
+------------
+
+```sh
+pip install -e git+git@github.com:dessibelle/sorl-thumbnail-serializer-field.git@master#egg=sorl_thumbnail_serializer
+```
+
 Quick start
 -----------
 
-1. Add the `HyperlinkedSorlImageField` to your serializer class.
+1. Add `'sorl_thumbnail_serializer'` to the list of installed applications in the project settings file. (Assuming you have already installed and configured [sorl-thumbnail](https://github.com/mariocesar/sorl-thumbnail) and [Django REST Framework](http://www.django-rest-framework.org), if not do so now.)
 
-2. Specify the image dimensions and cropping options that the REST API should use.
+2. Add the `HyperlinkedSorlImageField` to your serializer class.
+
+3. Specify the image dimensions and cropping options that the REST API should use.
 
 
 Example usage
 -------------
+
 ```python
 # urls.py
 from django.conf.urls import url, include
@@ -37,6 +47,7 @@ class TestModelSerializer(serializers.HyperlinkedModelSerializer):
         source='image',
         read_only=True
     )
+
     # A larger version of the image, allows writing
     image = HyperlinkedSorlImageField('1024')
 
