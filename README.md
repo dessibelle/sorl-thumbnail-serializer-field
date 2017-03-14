@@ -11,6 +11,14 @@ full-size one, and if you prefer several different versions (thumb, large etc.)
 Installation
 ------------
 
+### PyPI
+
+```sh
+pip install sorl-thumbnail-serializer-field
+```
+
+### Github
+
 ```sh
 pip install -e git+git@github.com:dessibelle/sorl-thumbnail-serializer-field.git@master#egg=sorl_thumbnail_serializer
 ```
@@ -18,7 +26,7 @@ pip install -e git+git@github.com:dessibelle/sorl-thumbnail-serializer-field.git
 Quick start
 -----------
 
-1. Add `'sorl_thumbnail_serializer'` to the list of installed applications in the project settings file. (Assuming you have already installed and configured [sorl-thumbnail](https://github.com/mariocesar/sorl-thumbnail) and [Django REST Framework](http://www.django-rest-framework.org), if not do so now.)
+1. Add `'sorl_thumbnail_serializer'` to the list of installed applications in your project's `settings.py` file. Make sure you have already installed and configured [sorl-thumbnail](https://github.com/mariocesar/sorl-thumbnail) and [Django REST Framework](http://www.django-rest-framework.org) as well, if not do so now.
 
 2. Add the `HyperlinkedSorlImageField` to your serializer class.
 
