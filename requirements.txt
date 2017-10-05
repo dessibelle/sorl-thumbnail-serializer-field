@@ -13,5 +13,5 @@ tox
 mock
 
 # Build
-pypandoc
+pypandoc==1.4
 wheel

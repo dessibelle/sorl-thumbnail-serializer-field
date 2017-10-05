@@ -8,8 +8,8 @@ def read_md(path):
     long_desc = ""
     if os.path.exists(path):
         try:
-            from pypandoc import convert
-            long_desc = convert(path, 'rst')
+            from pypandoc import convert_file
+            long_desc = convert_file(path, 'rst')
         except:
             try:
                 long_desc = open(path, 'r').read()
@@ -25,7 +25,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='sorl-thumbnail-serializer-field',
-    version='0.2',
+    version='0.2.1',
     packages=find_packages(exclude=['tests']),
     include_package_data=True,
     license='MIT License',
